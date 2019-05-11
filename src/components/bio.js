@@ -9,19 +9,20 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
-import { rhythm } from "../utils/typography"
+import { rhythm, scale } from "../utils/typography"
 
 function Bio() {
   return (
     <StaticQuery
       query={bioQuery}
       render={data => {
-        const { author, social } = data.site.siteMetadata
+        const { author } = data.site.siteMetadata
         return (
           <div
             style={{
               display: `flex`,
-              marginBottom: rhythm(2.5),
+              // marginBottom: rhythm(2.5),
+              alignItems: "center",
             }}
           >
             <Image
@@ -37,14 +38,16 @@ function Bio() {
                 borderRadius: `50%`,
               }}
             />
-            <p>
-              Written by <strong>{author}</strong> who lives and works in San
-              Francisco building useful things.
-              {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
-              </a>
-            </p>
+            <div>
+              <strong>{author}</strong>
+              <p
+                style={{
+                  ...scale(-1 / 5),
+                }}
+              >
+                Who lives and works in San Francisco building useful things.
+              </p>
+            </div>
           </div>
         )
       }}

@@ -7,6 +7,7 @@ module.exports = {
     social: {
       twitter: `kylemathews`,
     },
+    disqusShortname: "saikrishna-me",
   },
   plugins: [
     {

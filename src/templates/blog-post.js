@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
 import readingTime from "reading-time"
+import Disqus from "disqus-react"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -12,8 +13,7 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const { avatar } = this.props.data
-    const { title, author } = this.props.data.site.siteMetadata
-    const { previous, next } = this.props.pageContext
+    const { title, author, disqusShortname } = this.props.data.site.siteMetadata
 
     return (
       <Layout location={this.props.location} title={title}>
@@ -78,31 +78,24 @@ class BlogPostTemplate extends React.Component {
           }}
         />
         <Bio />
-
-        <ul
+        <br />
+        <div
           style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
+            backgroundColor: "#ffffff",
+            padding: rhythm(1),
+            border: "1px solid #E3E3E3",
+            borderRadius: rhythm(1 / 5),
           }}
         >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+          <Disqus.DiscussionEmbed
+            shortname={disqusShortname}
+            config={{
+              url: this.props.location.href,
+              identifier: this.props.location.pathname,
+              title: post.frontmatter.title,
+            }}
+          />
+        </div>
       </Layout>
     )
   }
@@ -123,6 +116,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        disqusShortname
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
