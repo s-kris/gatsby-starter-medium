@@ -6,6 +6,10 @@ Github.overrideThemeStyles = () => {
     "a:hover": {
       textDecoration: "none",
     },
+    "h1, h2, h3, h4": {
+      borderBottom: "none",
+      fontWeight: "normal",
+    },
   }
 }
 
