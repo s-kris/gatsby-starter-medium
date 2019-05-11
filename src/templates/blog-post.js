@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Image from "gatsby-image"
+import readingTime from "reading-time"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -65,7 +66,7 @@ class BlogPostTemplate extends React.Component {
                 color: "grey",
               }}
             >
-              {post.frontmatter.date}
+              {post.frontmatter.date} &#183; {readingTime(post.html).text}
             </p>
           </div>
         </div>
