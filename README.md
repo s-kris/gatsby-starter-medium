@@ -5,7 +5,7 @@
   Gatsby Starter Medium
 </h1>
 
-A gatsby starter blog as close as possible to medium, heavily based on https://github.com/gatsbyjs/gatsby-starter-blog
+A gatsby starter blog as close as possible to medium, heavily based on https://github.com/gatsbyjs/gatsby-starter-blog with disqus comments.
 
 #### Live Demo: https://dazzling-heyrovsky-62d4f9.netlify.com
 
