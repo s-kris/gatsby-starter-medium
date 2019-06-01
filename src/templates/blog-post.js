@@ -28,6 +28,7 @@ class BlogPostTemplate extends React.Component {
             width: "100%",
             display: "flex",
             justifyContent: "center",
+            padding: rhythm(1),
           }}
         >
           <div style={{ maxWidth: maxWidth }}>
