@@ -1,7 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Image from "gatsby-image"
-import readingTime from "reading-time"
 import Disqus from "disqus-react"
 
 import Bio from "../components/bio"
@@ -14,8 +12,7 @@ import ShortBio from "../components/ShortBio"
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const { avatar } = this.props.data
-    const { title, author, disqusShortname } = this.props.data.site.siteMetadata
+    const { title, disqusShortname } = this.props.data.site.siteMetadata
     const maxWidth = rhythm(27)
     return (
       <Layout location={this.props.location} title={title}>
@@ -28,13 +25,15 @@ class BlogPostTemplate extends React.Component {
             width: "100%",
             display: "flex",
             justifyContent: "center",
-            padding: rhythm(1),
+            paddingLeft: rhythm(1),
+            paddingRight: rhythm(1),
           }}
         >
           <div style={{ maxWidth: maxWidth }}>
             <h1
               style={{
                 ...scale(6 / 5),
+                marginTop: 0,
               }}
             >
               {post.frontmatter.title}

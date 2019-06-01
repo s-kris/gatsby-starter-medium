@@ -1,5 +1,6 @@
 import React from "react"
 import { scale, rhythm } from "../utils/typography"
+
 import ShortBio from "./ShortBio"
 
 function PostCard({ data }) {

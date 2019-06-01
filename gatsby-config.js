@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Gatsby Starter Medium`,
     author: `Sai Krishna`,
-    description: `A starter blog as close as possible to medium.`,
-    siteUrl: `https://saikrishna.me/`,
+    description: `A gatsby starter blog as close as possible to medium.`,
+    siteUrl: `https://dazzling-heyrovsky-62d4f9.netlify.com/`,
     social: {
       twitter: `_skris`,
       instagram: `saikrishna.me`,
