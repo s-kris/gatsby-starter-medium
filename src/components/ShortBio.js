@@ -1,9 +1,10 @@
 import PropTypes from "prop-types"
 import React from "react"
 import readingTime from "reading-time"
-import { rhythm, scale } from "../utils/typography"
 import Image from "gatsby-image"
 import { StaticQuery, graphql } from "gatsby"
+
+import { rhythm, scale } from "../utils/typography"
 
 function ShortBio({ post, hideAvatar, hideAuthor, hideDate, hideReadTime }) {
   return (

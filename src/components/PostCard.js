@@ -1,5 +1,6 @@
 import React from "react"
 import { scale, rhythm } from "../utils/typography"
+import { Link } from "gatsby"
 
 import ShortBio from "./ShortBio"
 
@@ -29,7 +30,7 @@ function PostCard({ data }) {
         Related Reads
       </span>
       <br />
-      <a href={slug}>
+      <Link to={slug}>
         <span
           style={{
             fontWeight: "bold",
@@ -39,7 +40,7 @@ function PostCard({ data }) {
         >
           {title}
         </span>
-      </a>
+      </Link>
 
       <br />
       <p
