@@ -1,7 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-
+import Headroom from "react-headroom"
 import { rhythm, scale } from "../utils/typography"
+
+import Menu from "./Menu"
 
 class Layout extends React.Component {
   render() {
@@ -9,25 +11,31 @@ class Layout extends React.Component {
     let header
 
     header = (
-      <h1
+      <div
         style={{
-          ...scale(2 / 2.25),
-          fontWeight: "bold",
-          marginTop: 0,
-          padding: rhythm(1),
+          backgroundColor: "#ffffff",
         }}
       >
-        <Link
+        <h1
           style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
+            ...scale(2 / 2.25),
+            fontWeight: "bold",
+            margin: rhythm(1 / 2),
           }}
-          to={`/`}
         >
-          {title}
-        </Link>
-      </h1>
+          <Link
+            style={{
+              boxShadow: `none`,
+              textDecoration: `none`,
+              color: `inherit`,
+            }}
+            to={`/`}
+          >
+            {title}
+          </Link>
+        </h1>
+        <Menu />
+      </div>
     )
 
     return (
@@ -37,7 +45,10 @@ class Layout extends React.Component {
           marginRight: `auto`,
         }}
       >
-        <header>{header}</header>
+        <Headroom>
+          <header>{header}</header>
+        </Headroom>
+
         <main>{children}</main>
         {/* <footer>
           © {new Date().getFullYear()}, Built with

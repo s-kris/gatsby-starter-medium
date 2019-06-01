@@ -18,7 +18,6 @@ function PostCard({ data }) {
         padding: rhythm(1 / 2),
         borderRadius: rhythm(1 / 5),
         boxShadow: "0 4px 8px 0 rgba(0,0,0,0.05)",
-        transition: "0.3s",
       }}
     >
       <span
