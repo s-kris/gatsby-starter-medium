@@ -1,31 +1,25 @@
-/**
- * Bio component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-
+import readingTime from "reading-time"
 import { rhythm, scale } from "../utils/typography"
+import Image from "gatsby-image"
+import { StaticQuery, graphql } from "gatsby"
 
-function Bio() {
+function ShortBio({ post }) {
   return (
     <StaticQuery
-      query={bioQuery}
+      query={shortBioQuery}
       render={data => {
         const { author } = data.site.siteMetadata
+        const { avatar } = data
+
         return (
           <div
             style={{
               display: `flex`,
-              alignItems: "center",
             }}
           >
             <Image
-              fixed={data.avatar.childImageSharp.fixed}
+              fixed={avatar.childImageSharp.fixed}
               alt={author}
               style={{
                 marginRight: rhythm(1 / 2),
@@ -37,14 +31,27 @@ function Bio() {
                 borderRadius: `50%`,
               }}
             />
+
             <div>
-              <strong>{author}</strong>
               <p
                 style={{
                   ...scale(-1 / 5),
+                  display: `block`,
+                  marginBottom: rhythm(1),
+                  color: "black",
                 }}
               >
-                Who lives and works in San Francisco building useful things.
+                {author}
+              </p>
+              <p
+                style={{
+                  ...scale(-1.5 / 5),
+                  display: `block`,
+                  marginTop: rhythm(-1),
+                  color: "grey",
+                }}
+              >
+                {post.frontmatter.date} &#183; {readingTime(post.html).text}
               </p>
             </div>
           </div>
@@ -54,8 +61,8 @@ function Bio() {
   )
 }
 
-const bioQuery = graphql`
-  query BioQuery {
+const shortBioQuery = graphql`
+  query ShortBioQuery {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
         fixed(width: 50, height: 50) {
@@ -74,4 +81,4 @@ const bioQuery = graphql`
   }
 `
 
-export default Bio
+export default ShortBio

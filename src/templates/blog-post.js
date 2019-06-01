@@ -8,6 +8,8 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import RecentPosts from "../components/RecentPosts"
+import ShortBio from "../components/ShortBio"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -36,48 +38,7 @@ class BlogPostTemplate extends React.Component {
             >
               {post.frontmatter.title}
             </h1>
-            <div
-              style={{
-                display: `flex`,
-              }}
-            >
-              <Image
-                fixed={avatar.childImageSharp.fixed}
-                alt={author}
-                style={{
-                  marginRight: rhythm(1 / 2),
-                  marginBottom: 0,
-                  minWidth: 50,
-                  borderRadius: `100%`,
-                }}
-                imgStyle={{
-                  borderRadius: `50%`,
-                }}
-              />
-
-              <div>
-                <p
-                  style={{
-                    ...scale(-1 / 5),
-                    display: `block`,
-                    marginBottom: rhythm(1),
-                    color: "black",
-                  }}
-                >
-                  {author}
-                </p>
-                <p
-                  style={{
-                    ...scale(-1.5 / 5),
-                    display: `block`,
-                    marginTop: rhythm(-1),
-                    color: "grey",
-                  }}
-                >
-                  {post.frontmatter.date} &#183; {readingTime(post.html).text}
-                </p>
-              </div>
-            </div>
+            <ShortBio post={post} />
             <br />
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
             <hr
@@ -96,9 +57,12 @@ class BlogPostTemplate extends React.Component {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            padding: rhythm(2.5),
+            padding: rhythm(1.5),
           }}
         >
+          <RecentPosts />
+          <br />
+          <br />
           <div
             style={{
               display: "flex",
