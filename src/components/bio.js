@@ -17,11 +17,13 @@ function Bio() {
       query={bioQuery}
       render={data => {
         const { author } = data.site.siteMetadata
+        const { twitter } = data.site.siteMetadata.social
+        const { instagram } = data.site.siteMetadata.social
+
         return (
           <div
             style={{
               display: `flex`,
-              alignItems: "center",
             }}
           >
             <Image
@@ -44,7 +46,12 @@ function Bio() {
                   ...scale(-1 / 5),
                 }}
               >
-                Who lives and works in San Francisco building useful things.
+                I enjoy the process of building a product from 0 to 1.
+                <br />
+                You can connect with me via{" "}
+                <a href={`https://twitter.com/${twitter}`}>Twitter</a> or if you
+                like to look at good photos,{" "}
+                <a href={`https://instagram.com/${instagram}`}>Instagram</a>.
               </p>
             </div>
           </div>
@@ -68,6 +75,7 @@ const bioQuery = graphql`
         author
         social {
           twitter
+          instagram
         }
       }
     }
